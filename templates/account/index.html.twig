@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vinum Lux{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="NameAccount">
+            <h4>Bonjour {{app.user.name}}</h4>
+            <a href={{path('app_logout')}}>Se déconnecter</a>
+        </div>
+        <div class="InfoAccount">
+            <h5 class="MesAdresses">Mes adresses<h5>
+            <div class="MyAddress-body">
+            {% for adresse in app.user.Adress %}
+                <div class="MyAddress">
+                <p>{{adresse.Adress}}</p>
+                </div>
+            {% endfor %}
+            </div>
+            <a href={{path('app_account_add_adress')}}>Créer une adresse</a><br>
+        </div>
+    </div>
+</div>
+{% endblock %}

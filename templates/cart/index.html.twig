@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vinum Lux{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container">
+<div class="row">
+    {% for line in cart %}
+            <div class="card-body">
+                <h5 class="card-title">{{ line.product.name }}</h5>
+                <img class="imgVinCart" src={{ asset(line.product.media[0].path )}} alt={{ line.product.media[0].alt }}>
+                <p class="card-text">{{ line.product.description }}</p>
+                <p class="card-text">{{ line.product.priceHT }}€</p>
+                <a href="{{ path('app_cart_remove', {'id' : line.product.id }) }}" class="btnCartProdSuppr">Supprimer la bouteille</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="btnCart">
+        <a href="{{ path('app_cart_remove_all') }}" class="btnCartSuppr">Supprimer le panier</a>
+        <a href="{{ path('app_order') }}" class="btnCartAdd">Valider le panier</a>
+</div>
+{% endblock %}

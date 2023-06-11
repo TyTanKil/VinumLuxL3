@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="uploads/logo.jpg" href=""{{ asset('favicon.ico') }}"">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+    <div class="container">
+        <header>
+            <a href="{{ path('app_home') }}">
+                <h1 class="VinumLux">Vinum Lux</h1>
+            </a>
+            <nav class="navbar">
+                <a href="{{ path('app_home') }}">Home</a>
+                <a href="{{ path('app_product') }}">Produit</a>
+                <a href="{{ path('app_cart')}}">Ma Cave</a>
+                {% if app.user %}
+                    <a href="{{ path('app_account')}}">Mon Compte</a>
+                {% else %}
+                    <a href="{{ path('app_login')}}">Mon Compte</a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_handle_product_index')}}">Ajouter des produits</a>
+                    <a href="{{ path('app_handle_category_index')}}">Ajouter des catégories</a>
+                {% endif %}
+            </nav>
+        {% block body %}{% endblock %}
+        <footer>
+            <div class="footer-content">
+                <div class="footer-mentions">
+                    <a>Mentions Légales</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </body>
+
+</html>

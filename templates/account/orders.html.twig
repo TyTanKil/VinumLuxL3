@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vinum Lux{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <label class="labelMyOrders">Mes commandes</label>
+                {% for order in app.user.orders %}
+                    <div class="MyOrders-body">
+                        <p>Numéro : {{order.orderNumber}}</p>
+                        <p>Date : {{order.dateTime|date('Y-m-d')}}</p>
+                        <b>Détails</b>
+                        <div class="MyOrders-products">
+                        {% for line in order.Line %}
+                            <div class="MyOrders-body">
+                                <p>Produit : {{line.product.name}}</p>
+                                <p>Prix : {{line.product.priceHt}}</p>
+                                <p>Quantité : {{line.quantity}}</p>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

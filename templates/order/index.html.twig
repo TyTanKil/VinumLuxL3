@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vinum Lux{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <label class="labelOrder">Récap de ma commande</label>
+
+        {% for line in cart %}
+                <div class="order-body">
+                    <img class="imgVinCart" src={{ asset(line.product.media[0].path )}} alt={{ line.product.media[0].alt }}>
+                    <h5 class="order-title">{{ line.product.name }}</h5>
+                    <p class="order-text">{{ line.product.description }}</p>
+                    <p class="order-text">{{ line.product.priceHt }} €</p>
+                </div>
+    {% endfor %}
+
+        <div class="Total">
+            <p>Total de la commande :{{total}} €</p>
+            {{form(form)}}  
+        </div>
+    </div>
+</div>
+
+{% endblock %}

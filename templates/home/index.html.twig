@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vinum Lux{% endblock %}
+
+{% block body %}
+{% if app.user %}
+    <a href="{{ path('app_account') }}" class="user">
+{% else %}
+    <a href="{{ path('app_login') }}" class="user">
+{% endif %}
+</a>
+
+<p class="homeVinum">
+Bienvenue dans l'univers raffiné de Vinum Lux, votre destination ultime pour découvrir et acquérir les vins de luxe les plus exquis.<br><br>
+
+Plongez dans une expérience unique où l'art de la vinification rencontre l'élégance intemporelle. Notre sélection soigneusement choisie de vins rares et prestigieux est le fruit d'un savoir-faire exceptionnel et d'un amour profond pour les trésors viticoles. Chaque bouteille que nous proposons incarne l'essence de la perfection, offrant une symphonie de saveurs, d'arômes et de textures qui captivera vos sens.<br><br>
+
+Notre collection de vins de luxe représente le meilleur de chaque terroir, sélectionnée avec la plus grande attention pour satisfaire les palais les plus exigeants. Des grands crus classés de Bordeaux aux vins de renommée internationale en passant par les joyaux cachés des vignobles confidentiels, nous avons réuni une gamme exceptionnelle qui ravira les amateurs de vin les plus passionnés.<br><br>
+
+Chez Vinum Lux, nous croyons en l'importance de l'expérience client. Notre équipe d'experts en vins est dédiée à vous guider dans votre exploration gustative, en partageant des conseils avisés et des recommandations personnalisées. Que vous soyez un connaisseur chevronné ou un amateur curieux, nous sommes là pour vous accompagner dans votre quête de découvertes viniques exceptionnelles.<br><br>
+
+Au-delà de notre sélection exclusive de vins de prestige, nous offrons un service irréprochable, digne des plus grandes maisons. Nous veillons à ce que chaque commande soit traitée avec le plus grand soin, depuis la sélection des bouteilles jusqu'à leur livraison sécurisée jusqu'à votre porte. Votre satisfaction est notre priorité absolue.<br><br>
+
+Parcourez notre site et laissez-vous séduire par notre collection de vins d'exception. Que ce soit pour une occasion spéciale, une célébration mémorable ou tout simplement pour vous faire plaisir, Vinum Lux vous invite à explorer l'univers fascinant des vins de luxe.<br><br>
+
+Découvrez la quintessence du vin, laissez-vous envoûter par l'élégance des cépages et entrez dans un monde où chaque gorgée est une expérience inoubliable. Bienvenue chez Vinum Lux, où la passion du vin rencontre l'art de l'excellence.</p>
+
+{% endblock %}

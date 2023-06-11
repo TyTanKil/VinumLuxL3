@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vinum Lux{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+    <a href="{{ path('app_account') }}" class="user">
+{% else %}
+    <a href="{{ path('app_login') }}" class="user">
+{% endif %}
+</a>
+
+<div class="container">
+    <div class="row">
+        {% set productCount = 0 %}
+
+        <h2 class="TypeVin">Vin Rouge</h2>
+        {% for product in products %}
+            {% if product.category == 'Rouge' %}
+                <div class="product-card">
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.priceHt }}€</p>
+                    {% if product.media|length > 0 %}
+                        <img class="imgVin" src="{{ product.media[0].path }}" alt="{{ product.name }}">
+                    {% endif %}
+                    <a href="{{ path('app_cart_add', {'id': product.id }) }}">Ajouter à Ma Cave</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <h2 class="TypeVin">Vin Blanc</h2>
+        {% for product in products %}
+            {% if product.category == 'Blanc' %}
+                <div class="product-card">
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.priceHt }}€</p>
+                    {% if product.media|length > 0 %}
+                        <img class="imgVin" src="{{ product.media[0].path }}" alt="{{ product.name }}">
+                    {% endif %}
+                    <a href="{{ path('app_cart_add', {'id': product.id }) }}">Ajouter à Ma Cave</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <h2 class="TypeVin">Vin Rosé</h2>
+        {% for product in products %}
+            {% if product.category == 'Rosé' %}
+                <div class="product-card">
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.priceHt }}€</p>
+                    {% if product.media|length > 0 %}
+                        <img class="imgVin" src="{{ product.media[0].path }}" alt="{{ product.name }}">
+                    {% endif %}
+                    <a href="{{ path('app_cart_add', {'id': product.id }) }}">Ajouter à Ma Cave</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
