@@ -1,3 +1,5 @@
+Cahier des charges :
+
 Vous devez gérer la commande en ligne sur un catalogue existant (on ne demande pas la gestion des stocks !). FAIT
 
 L'utilisateur final pourra naviguer entre catégories de produits et choisir un produit pour le mettre dans son panier (on choisira de placer plutôt le panier en variable de session, mais la solution qu'il soit dans la base est aussi possible). CATEGORI PAS FAIT, les catégories sont présentes dans les produits. PRODUIT FAIT 
@@ -13,3 +15,6 @@ Lorsque l'utilisateur se connecte à la boutique, ses paramètres de connexion l
 Le back-office de la boutique permettra de gérer le catalogue FAIT
 
 L'utilisateur aura accès à son profil pour le mettre à jour. PAS FAIT
+
+URL du site : halimi.alwaysdata.net
+URL du github : https://github.com/TyTanKil/VinumLuxL3.git
